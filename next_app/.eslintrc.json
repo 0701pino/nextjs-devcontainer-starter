@@ -1,0 +1,4 @@
+// see. https://nextjs.org/docs/pages/building-your-application/configuring/eslint
+{
+  "extends": ["next/core-web-vitals", "prettier"]
+}

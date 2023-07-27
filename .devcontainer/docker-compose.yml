@@ -1,0 +1,5 @@
+version: '3'
+
+services:
+  next_app:
+    command: sleep infinity

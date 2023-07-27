@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  next_app:
+    container_name: next_app
+    build:
+      context: .  # Dockerfileやビルドに必要なファイルが存在するディレクトリのパス
+      dockerfile: Dockerfile # ビルドに使用するDockerfileの名前
+    restart: always  # コンテナが異常終了した場合に自動的に再起動
+    ports:
+      - 3000:3000  # ホストのポート3000をコンテナのポート3000にマッピング
+    networks:
+      - next_app_network  # コンテナが参加するネットワークの名前
+
+networks:
+  next_app_network:
+    driver: bridge

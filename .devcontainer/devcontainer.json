@@ -1,0 +1,72 @@
+{
+	"name": "next_app_devcontainer",
+	"dockerComposeFile": [
+		"../docker-compose.dev.yml",
+		"docker-compose.yml"
+	],
+	"service": "next_app",
+	"workspaceFolder": "/workspace/next_app",
+	// コンテナに追加する機能
+	"features": {
+		// Zshのインストール
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"configureZshAsDefaultShell": true,
+			"installZsh": true,
+			"installOhMyZsh": true,
+			"upgradePackages": true,
+			"username": "node"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				// ファイル保存時にフォーマット処理を実行
+				"editor.formatOnSave": true,
+				// 各ファイルのデフォルトのフォーマッターを指定
+				"[javascript]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+				"[javascriptreact]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+				"[typescript]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+				"[typescriptreact]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+				"[json]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+				"[postcss]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+				"[css]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+				// ESLintの対象を設定
+				"eslint.validate": [
+					"javascript",
+					"javascriptreact",
+					"typescript",
+					"typescriptreact"
+				],
+				// 保存時に実行されるコードアクションを有効に設定
+				"editor.codeActionsOnSave": {
+					"source.fixAll.eslint": true,
+					"source.organizeImports": false // ESLintによる自動インポート順序の整理を無効化
+				},
+				// VSCodeのデフォルトのフォーマッターを無効に
+				"javascript.format.enable": false,
+				"typescript.format.enable": false
+			},
+			// 拡張機能を追加
+			"extensions": [
+				"MS-CEINTL.vscode-language-pack-ja", // Visual Studio Codeの日本語言語パック
+				"dbaeumer.vscode-eslint", // ESLint
+				"esbenp.prettier-vscode", // Prettier
+				"formulahendry.auto-rename-tag", // Auto Rename Tag
+				"eamodio.gitlens" // GitLens
+			]
+		}
+	}
