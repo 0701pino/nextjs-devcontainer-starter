@@ -54,7 +54,7 @@ DevContainerの初期化後に自動的に設定されるVisual Studio Codeの�
 コンテナ名を変更するには、.devcontainerの中にあるchange_container_name.shを使用します。
 、
 ```
-sh change_container_name.sh app_name
+sh change_service_name.sh app_name
 ```
 上記を実行すると、コンテナ名がnext_appからapp_nameに変更されます。
 
