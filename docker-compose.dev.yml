@@ -9,9 +9,6 @@ services:
       context: . # ビルドに必要なファイルが存在するディレクトリのパスを指定
       dockerfile: Dockerfile.dev # ビルドに使用するDockerfileの名前を指定
 
-    environment:
-      - NODE_ENV=development
-
     volumes:
       # ホストのディレクトリとコンテナの/workspaceをマウント
       - type: bind
@@ -22,14 +19,11 @@ services:
         source: node_modules
         target: /workspace/next_app/node_modules
 
-    restart: always # コンテナが異常終了した場合に自動的に再起動
-
     ports:
-      - 127.0.0.1:3000:3000 # ホストのポート3000をコンテナのポート3000にマッピング
+      - 127.0.0.1:3020:3000 # ホストのポート3000をコンテナのポート3000にマッピング
 
     networks:
       - next_app_network # コンテナが参加するネットワークの名前
-
 
 volumes:
   node_modules:
