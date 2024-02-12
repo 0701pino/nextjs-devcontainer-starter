@@ -1,16 +1,15 @@
-FROM node:18.12.1-bullseye-slim
+FROM node:20-bullseye-slim
 
 WORKDIR /workspace/next_app
 
 RUN mkdir -p /workspace/next_app/node_modules && chown -R node:node /workspace/next_app/node_modules
 
-
 # 依存関係をインストール
 COPY next_app/package.json next_app/yarn.lock* ./
 
-RUN yarn install
-
 USER node
+
+RUN yarn install
 
 # Next.jsによってテレメトリデータを収集するのを無効にする
 ARG NEXT_TELEMETRY_DISABLED=1
