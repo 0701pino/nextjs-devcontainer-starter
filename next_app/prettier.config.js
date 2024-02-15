@@ -8,7 +8,7 @@
 /** @type {PrettierConfig | SortImportsConfig} */
 module.exports = {
   printWidth: 100,
-  plugins: ["@ianvs/prettier-plugin-sort-imports"],
+  plugins: ["@ianvs/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
   importOrder: [
     "<BUILTIN_MODULES>",
     "",
